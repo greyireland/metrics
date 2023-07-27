@@ -77,6 +77,14 @@ func (h *Histogram) Reset() {
 	h.mu.Unlock()
 }
 
+func (h *Histogram) GetSum() float64 {
+	return h.sum
+}
+
+func (h *Histogram) GetDecimalBuckets() [decimalBucketsCount]*[bucketsPerDecimal]uint64 {
+	return h.decimalBuckets
+}
+
 // Update updates h with v.
 //
 // Negative values and NaNs are ignored.
